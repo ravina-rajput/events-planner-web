@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gallery</title>
+	<link rel="stylesheet" type="text/css" href="gstyle.css">
+</head>
+<body>
+	<center><h1 class="gallery">Gallery</h1></center>
+
+	<div class="container">
+  <div class="main-img">
+    <img src="https://images.pexels.com/photos/1306791/pexels-photo-1306791.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" id="current">
+  </div>
+
+  <div class="imgs">
+    <img src="https://images.pexels.com/photos/196652/pexels-photo-196652.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+    <img src="https://images.pexels.com/photos/433527/pexels-photo-433527.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+    <img src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+    <img src="https://images.pexels.com/photos/221361/pexels-photo-221361.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+    <img src="https://images.pexels.com/photos/587741/pexels-photo-587741.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+    <img src="https://images.pexels.com/photos/2143/lights-party-dancing-music.jpg?auto=compress&cs=tinysrgb&h=650&w=940">
+    <img src="https://images.pexels.com/photos/796606/pexels-photo-796606.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+    <img src="https://images.pexels.com/photos/382297/pexels-photo-382297.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+    <img src="https://images.pexels.com/photos/42067/air-balloon-balloons-birthday-42067.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+    <img src="https://images.pexels.com/photos/1415557/pexels-photo-1415557.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+    <img src="https://images.pexels.com/photos/169192/pexels-photo-169192.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+    <img src="https://images.pexels.com/photos/306066/pexels-photo-306066.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+  </div>
+</div>
+	
+	<script type="text/javascript">
+		const current = document.querySelector("#current");
+const imgs = document.querySelectorAll(".imgs img");
+const opacity = 0.6;
+
+// Set first img opacity
+imgs[0].style.opacity = opacity;
+
+imgs.forEach(img => img.addEventListener("click", imgClick));
+
+function imgClick(e) {
+  // Reset the opacity
+  imgs.forEach(img => (img.style.opacity = 1));
+
+  // Change current image to src of clicked image
+  current.src = e.target.src;
+
+  // Add fade in class
+  current.classList.add("fade-in");
+
+  // Remove fade-in class after .5 seconds
+  setTimeout(() => current.classList.remove("fade-in"), 500);
+
+  // Change the opacity to opacity var
+  e.target.style.opacity = opacity;
+}
+	</script>
+
+</body>
+</html>
